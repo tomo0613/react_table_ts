@@ -1,0 +1,26 @@
+{
+  "name": "react_table_ts",
+  "version": "1.0.0",
+  "description": "A wrapper for the react-virtualized.table component with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node fuse",
+    "build": "node fuse.js",
+    "dev": "NODE_ENV=dev node fuse.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.0.7",
+    "@types/react-dom": "^15.5.5",
+    "fuse-box": "^2.2.31",
+    "typescript": "^2.5.3",
+    "uglify-js": "^3.1.2"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-virtualized": "^9.10.1"
+  }
+}
