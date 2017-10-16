@@ -25,7 +25,11 @@ class Main extends React.Component {
                 },
                 cellRenderer: (row) => {
                     return (
-                        <input type="checkbox" checked={row.rowData.selected} />
+                        <input 
+                            type="checkbox"
+                            checked={row.rowData.selected === undefined ? false : row.rowData.selected}
+                            onChange={() => {}}
+                        />
                     );
                 },
             }, {

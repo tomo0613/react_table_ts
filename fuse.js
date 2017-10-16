@@ -10,7 +10,8 @@ const fuse = FuseBox.init({
         CSSPlugin(),
         JSONPlugin(),
         WebIndexPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
+            path: '.'
         }),
         !devMode && QuantumPlugin({
             treeshake: true,

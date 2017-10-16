@@ -23,6 +23,7 @@ interface IProps {
     width?: number;
     height?: number;
     select?: 'single'|'multiple';
+    onSelect?: Function;
 };
 
 interface IState {
@@ -33,6 +34,7 @@ interface IState {
 }
 
 class ReactVirtualizedTable extends React.Component<IProps, IState> {
+    private Table: any;
     private columns: TableColumn[];
     width: number;
     height: number;
@@ -68,6 +70,7 @@ class ReactVirtualizedTable extends React.Component<IProps, IState> {
                     {
                         (size: Size) =>
                         <Table
+                            ref={(table) => this.Table = table}
                             width={this.props.width || size.width}
                             height={this.props.height || size.height}
                             headerHeight={this.headerHeight}
@@ -87,6 +90,10 @@ class ReactVirtualizedTable extends React.Component<IProps, IState> {
                 </AutoSizer>
             </div>
         );
+    }
+
+    refreshGrid = () => {
+        this.Table.Grid.forceUpdate();
     }
 
     filter = (searchFor: string, dataKeys?: string[]) => {
@@ -125,6 +132,8 @@ class ReactVirtualizedTable extends React.Component<IProps, IState> {
         this.setState({
             rows: list,
         });
+
+        this.refreshGrid();
     }
 
     private selectHandler = (row) => {
@@ -146,7 +155,13 @@ class ReactVirtualizedTable extends React.Component<IProps, IState> {
 
         this.setState({
             rows: list,
-        });        
+        });
+
+        if (this.props.onSelect && typeof this.props.onSelect == 'function') {
+            this.props.onSelect(row);   
+        }
+
+        this.refreshGrid();
     }
 
     private sortHandler = (sort) => {

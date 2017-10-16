@@ -1,13 +1,45 @@
 @charset "UTF-8";
 
 body {
-    background: grey;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.5) 90%);
+    background-size: cover;
+    height: 100%;
+}
+
+.ReactVirtualized__Table__headerRow {
+    background: rgba(0, 0, 0, 0.3);
+    background-attachment: fixed;
+    
+}
+
+.ReactVirtualized__Table__headerColumn:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.ReactVirtualized__Table__row {
+    line-height: 2em;
+}
+
+.ReactVirtualized__Table__rowColumn:not(:nth-last-of-type(1)) {
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.ReactVirtualized__Table__row:nth-of-type(even) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.ReactVirtualized__Table__row:hover {
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.ReactVirtualized__Table__row.selected {
+    background: rgba(115, 255, 0, 0.397);
 }
 
 .tableContainer {
-    border: 1px solid;
+    border: 1px ;
+    box-shadow: -1px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin: 0.5em 0;
 }
 
-.selected {
-    background: rgba(115, 255, 0, 0.397);
-}
